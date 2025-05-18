@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hero Title Animation (Bottom to Top)</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #111;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            perspective: 1000px;
+        }
+
+        .hero-title-wrapper {
+            position: relative;
+            display: inline-block;
+            transform-style: preserve-3d;
+        }
+
+        .hero-title-row,
+        .hero-title-row-two {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-style: preserve-3d;
+            transition: all 1s ease;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Initial state */
+        .hero-title-row {
+            transform: translateY(100%) rotateX(-90deg);
+            opacity: 0;
+        }
+
+        .hero-title-row-two {
+            transform: translateY(0%) rotateX(0deg);
+            opacity: 1;
+        }
+
+        /* Animate state */
+        .animate .hero-title-row {
+            transform: translateY(0%) rotateX(0deg);
+            opacity: 1;
+        }
+
+        .animate .hero-title-row-two {
+            transform: translateY(-100%) rotateX(-90deg);
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hero-title-wrapper" id="heroTitle">
+        <div class="hero-title-row">
+            <h2 class="hero-title">Farhan Rauf</h2>
+        </div>
+        <div class="hero-title-row-two">
+            <h2 class="hero-title">Farhan Rauf</h2>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            const titleWrapper = document.getElementById('heroTitle');
+            setTimeout(() => {
+                titleWrapper.classList.add('animate');
+            }, 500);
+        });
+    </script>
+
+</body>
+
+</html>
