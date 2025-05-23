@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ScrollTrigger GSAP Services</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .service-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .service-content {
+            display: flex;
+            align-items: center;
+            opacity: 0;
+        }
+
+        .service-image {
+            min-width: 300px;
+            margin-right: 3rem;
+            transform: translateX(100%);
+        }
+
+        .service-text {
+            max-width: 500px;
+            transform: translateX(-100%);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <div class="service-section">
+        <div class="service-content" id="service01">
+            <img src="bfcb9d04-a219-46cd-a559-2b428b52b0ab.png" alt="VR Design" class="service-image" />
+            <div class="service-text">
+                <h2 class="text-4xl font-bold mb-4">[01] Action and Creative Design</h2>
+                <ul class="text-lg space-y-2 text-gray-700">
+                    <li>DIRECTION</li>
+                    <li>BRANDING DESIGN AND ART</li>
+                    <li>VISUAL IMAGERY</li>
+                    <li>SOUND AND EDIT</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.to("#service01 .service-content", {
+            opacity: 1,
+            duration: 1.5,
+            scrollTrigger: {
+                trigger: "#service01",
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+            }
+        });
+
+        gsap.to("#service01 .service-image", {
+            x: 0,
+            duration: 1.2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: "#service01",
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+            }
+        });
+
+        gsap.to("#service01 .service-text", {
+            x: 0,
+            duration: 1.2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: "#service01",
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+            }
+        });
+    </script>
+</body>
+
+</html>
